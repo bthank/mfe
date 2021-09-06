@@ -1,12 +1,21 @@
+# from container.yml file
+# name of workflow
 name: deploy-container
 
+# on === add event listener
 on:
+  # for push event
   push:
+    # on the following array of branches
     branches:
       - main
       - master
+    # only run this workflow when we make a change to any of the following
     paths:
-      - 'packages/container/**'
+      # any (**) change inside the container dir
+      - 'container/**'
+      # changes made to the container.yml file
+      - '.github/workflows/container.yml'
 
 defaults:
   run:
