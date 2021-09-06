@@ -13,9 +13,7 @@ on:
     # only run this workflow when we make a change to any of the following
     paths:
       # any (**) change inside the container dir
-      - 'container/**'
-      # changes made to the container.yml file
-      - '.github/workflows/container.yml'
+      - 'packages/container/**'
 
 defaults:
   run:

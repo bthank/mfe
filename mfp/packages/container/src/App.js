@@ -7,7 +7,7 @@ import Marketingapp from './components/MarketingApp';
 export default () => {
     return (
             <div>
-                <h1>Hello there from App.js</h1>
+                <h1>Hello there I am coming from App.js</h1>
                 <hr/>
                 <Marketingapp />
             </div>
