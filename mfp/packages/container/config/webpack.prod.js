@@ -25,7 +25,7 @@ const prodConfig = {
                 // the key 'marketing' needs to match up with the first part of some import statement in our container project
                 // the ${domain} is interpolation for domain
                 // the js file (remoteEntry.js) representing marketing will be contained in a folder named marketing at the domain ${domain}
-                marketing: `marketing@${domain}/marketing/remoteEntry.js`        
+                marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`        
             },
             // the shared files will come from packageJson.dependencies
             shared: packageJson.dependencies,
