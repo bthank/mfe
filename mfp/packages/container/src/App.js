@@ -1,6 +1,6 @@
 import React from 'react';
 //import { mount } from 'marketing/MarketingApp';
-import Marketingapp from './components/MarketingApp';
+import MarketingApp from './components/MarketingApp';
 
 //console.log(mount)
 
@@ -9,7 +9,7 @@ export default () => {
             <div>
                 <h1>Hello there I am coming from App.js</h1>
                 <hr/>
-                <Marketingapp />
+                <MarketingApp />
             </div>
             ); 
     

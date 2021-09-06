@@ -22,11 +22,11 @@ on:
     # only run this workflow when we make a change to any of the following
     paths:
       # any (**) change inside the container dir
-      - 'packages/container/**'
+      - 'mfp/packages/container/**'
 
 defaults:
   run:
-    working-directory: packages/container
+    working-directory: mfp/packages/container
 
 jobs:
   build:
