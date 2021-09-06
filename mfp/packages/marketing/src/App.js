@@ -1,13 +1,21 @@
 import React from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
-import { StylesProvider } from '@material-ui/core/styles';
+import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles';
 
 import Landing from './components/Landing';
 import Pricing from './components/Pricing';
 
+// This will force React to build CSS class names with the prefix of 'ma' instead
+// of 'jss' for this marketing component.
+// This is used to avoid CSS class naming collisions across components. 
+// This is available thru material-ui StylesProvider.
+const generateClassNamePrefix = createGenerateClassName({
+    productionPrefix: 'ma',
+});
+
 export default () => {
     return <div>
-                <StylesProvider>
+                <StylesProvider generateClassName={generateClassNamePrefix}>
                     <BrowserRouter>
                         <Switch>
                             <Route exact path="/pricing" component={Pricing} />
