@@ -14,8 +14,8 @@ const prodConfig = {
     output: {
         // this is a template for file names and to handle caching issues
         // this is done to avoid caching issues for files that could be named the same otherwise        
-        filename: '[name].[contenthash].js',
-        publicPath: '/container/latest/',
+        filename: '/container/latest/[name].[contenthash].js',
+        // publicPath: '/container/latest/',
     },
     plugins: [
         new ModuleFederationPlugin({
