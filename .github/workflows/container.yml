@@ -4,6 +4,15 @@ name: deploy-container
 
 # on === add event listener
 on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'
+
   # for push event
   push:
     # on the following array of branches
