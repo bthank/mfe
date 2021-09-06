@@ -1,4 +1,4 @@
-const { merge } = require('webpack-merge');
+const { merge } = require('webpack-merge');  // will allow us to merge common and dev or prod files
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const commonConfig = require('./webpack.common');
 const packageJson = require('../package.json'); // this is required so that eventually webpack will take care of all the shared modules for us
@@ -8,10 +8,12 @@ const packageJson = require('../package.json'); // this is required so that even
 // will contain a string that identifies where our application is actually hosted.
 const domain = process.env.PRODUCTION_DOMAIN;
 
+// create prodConfig object
 const prodConfig = {
-    mode: 'production',
+    mode: 'production',  // mode of production will cause Webpack to run slightly differently and produce a production build
     output: {
         // this is a template for file names and to handle caching issues
+        // this is done to avoid caching issues for files that could be named the same otherwise        
         filename: '[name].[contenthash].js'
     },
     plugins: [
