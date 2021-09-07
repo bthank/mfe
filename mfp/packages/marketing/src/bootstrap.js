@@ -1,10 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createMemoryHistory, createBrowserHistory } from 'history';
 import App from './App';
 
 // Mount function to start up the app
-const mount = (element) => {
-    ReactDOM.render(<App />,element);
+const mount = (element, { onNavigate, defaultHistory } ) => {
+
+    // this says if we were provided a defaultHistory then use it, otherwise
+    // call createMemoryHistory() to create a history object
+    const history = defaultHistory || createMemoryHistory();
+
+    // use the history object's event listener called listen
+    // whenever the url changes, call the callback function onNavigate to notify the Container of a url change
+    if (onNavigate) {
+        history.listen(onNavigate);
+    }
+
+    ReactDOM.render(<App history={history} />,element);
+
+    return {
+        onParentNavigate({pathname: nextPathname}){
+
+            const { pathname } = history.location;
+
+            console.log("In Marketing component bootstrap.js: Container just navigated")
+            console.log(location);
+
+            if (pathname !== nextPathname){
+                history.push(nextPathname);
+            }
+        }
+    };
 };
 
 
@@ -15,7 +41,7 @@ if (process.env.NODE_ENV === 'development') {
 
     // if the element exists, then mount function 'devRoot'
     if (devRoot) {
-        mount(devRoot);
+        mount(devRoot,{defaultHistory: createBrowserHistory()});
     }
 }
 
